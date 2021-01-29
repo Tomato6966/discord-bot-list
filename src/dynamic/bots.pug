@@ -1,0 +1,57 @@
+doctype html
+include includes/head.pug
+body
+    include includes/nav.pug
+    #content
+        #img-holder
+            if (bot.nsfw)
+                img#bot-icon.nsfw(width='250px' height='250px' src=bot.logo)
+                #botprefix
+                    code.prefix #{bot.prefix}
+            else
+                img#bot-icon(width='250px' height='250px' src=bot.logo)
+                #botprefix
+                    code.prefix #{bot.prefix}
+        .right
+            h2(style='display: inline;')
+                | #{bot.username}
+                if (discord_verified)
+                    i.fas.fa-medal.verified
+                        span.verified_tooltip Verified Bot
+                a.likes(href=`/bots/like/${bot.botid}`)
+                    i.far.fa-heart
+                    | #{bot.likes || 0}
+            if (servers)
+                .servers #{`${servers} servers`}
+            .sts(class=botUser.presence.status)
+                i.fas.fa-circle
+                span #{botUser.presence.status}
+            .summary #{bot.description}
+            .buttons-case
+                a.bot-btns.button(target='_blank' href=bot.invite ? bot.invite : `https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0`)
+                    | Invite
+                a.bot-btns.button(target='_blank' href=`/api/embed/${bot.botid}`) Embed
+            .bot-buttons
+                if (bot.support)
+                    a.small-link(target='_blank' href=`${bot.support}`) Support Server
+                if (bot.website)
+                    a.small-link(target='_blank' href=`${bot.website}`) Website
+                if (bot.github)
+                    a.small-link(target='_blank' href=`${bot.github}`) Github
+            if (bot.tags)
+                ul.tags
+                    each tag in bot.tags
+                        li
+                            a.bot-tag(href=`/tag/${tag}`) #{tag}
+
+        if (isUrl)
+            #long.isurl !{desc}
+        else
+            #long
+                span.markdown-body !{desc}
+        
+        #owners
+            each person in owners
+                a.owner(href=`/user/${person.id}`)
+                    img(height='30px' src=person.tag !== 'Unknown User'  ? person.displayAvatarURL({format: "png", size: 256}) : '/assets/default-avatar.png')
+                    span.tag #{person.tag}

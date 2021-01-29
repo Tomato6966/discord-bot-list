@@ -1,0 +1,34 @@
+doctype html
+include includes/head.pug
+body
+    include includes/nav.pug
+    #content
+        span.header
+            h1 Search
+            p
+                span.strikethrough The faster the Bots are, the better they are. #Fastest Bot-list | faster-bots.com
+        br
+        .input-holder
+            input#searchbar.input(type='text' placeholder=' ')
+            .placeholder Search
+        #cards
+            if (cards.length == 0)
+                p No bots found. Try searching for something else.
+            else
+                each card in cards
+                    div.card
+                        img.icon(src=card.logo)
+                        h2.title #{card.username}
+                            a.likes(href=`/bots/like/${card.botid}`)
+                                i.far.fa-heart
+                                | #{card.likes || 0}
+                        p.desc #{card.description}
+                        a.small.button(href=`/bots/${card.botid}`) View bot info
+        br
+    script.
+        const node = document.getElementById("searchbar");
+        node.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+        location.href = `/bots/search/?q=${node.value}`
+        }
+        });

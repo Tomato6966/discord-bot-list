@@ -1,0 +1,14 @@
+doctype html
+include includes/head.pug
+body(onload="load()")
+    include includes/nav.pug
+    #content
+        span.header
+            h1 Faster Bots
+            p The faster the Bots are, the better they are. #Fastest Bot-list | faster-bots.com
+            | 
+        #searchMore
+            | Would you like to 
+            a(href='/bots/search/') search all bots
+        #cards
+            span#loading Loading...
