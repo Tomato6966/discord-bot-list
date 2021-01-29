@@ -1,0 +1,42 @@
+{
+    "mongo_url": "mongodb+srv://<DBNAME>:<DBPASSWORD>@<DBNAME>.9cln0.mongodb.net/<DBNAME>?retryWrites=true&w=majority",
+    "server": {
+        "id": "803309074644336640",
+        "invite": "https://discord.gg/KypNn58T3F",
+        "mod_log_id": "803316063261163541",
+        "like_log": "803316039478935562",
+        "admin_user_ids": [ "442355791412854784", "720040787362185299" ] ,
+        "role_ids": {
+            "bot": "803315802131791883",
+            "unverified": "803315818016407582",
+            "verified": "803315845169545256",
+
+            "bot_developer": "803315931425800202",
+            "bot_verifier": "803315965332422666"
+        }
+    },
+    "bot_options": {
+        "bot_tags": ["NSFW", "MUSIC", "FUN", "MODERATION", "MULTIFUNCTIONAL", "SPORTS", "GAMING", "INFORMATION", "WIKI",
+        "RADIO", "BROADCAST", "ANIME", "GIFS", "IMAGES"],
+        "max_bot_tags": 5,
+        "max_owners_count": 3,
+        "max_summary_length": 200,
+        "min_description_length": 100,
+        "max_description_length": 4000
+    },
+    "discord_client": {
+        "id": "797514740607483924",
+        "secret": "jCLIENTSECRETFROMTHEBOTbO8uuaLnvp",
+        "token": "NTOKENGOESHERELMFAOTHISISLITERALLYWORKINGWITHALEGITTOKENpALQBxKGhIqdIrb8",
+        "prefix": "!"
+    },
+    "web": {
+        "domain_with_protocol": "https://faster-bots.com",
+        "port": 80,
+        "ratelimit": 30,
+        "recaptcha_v2": {
+            "site_key": "6LfxEzwaAAAAAAAAAAAAAAArFfN0zpwri4rm",
+            "secret_key": "6LfxEzwaAAAAAAAAAAAa8dG7OhMBx78TRFZdJ"
+        }
+    }
+}
